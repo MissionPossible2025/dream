@@ -25,7 +25,7 @@ export default function App() {
 
       <main className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <motion.h2 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-4xl md:text-5xl font-extrabold leading-tight">We build beautiful websites, apps, and brands that connect.</motion.h2>
+          <motion.h2 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-3xl md:text-4xl font-bold leading-tight text-gray-800">We build beautiful websites, apps, and brands that connect.</motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="mt-4 text-gray-600 max-w-xl">DreamSync Creations combines creative design with modern engineering to deliver engaging digital experiences — fast, reliable and tailored to your goals.</motion.p>
 
           <div className="mt-6 flex gap-3">
@@ -45,23 +45,47 @@ export default function App() {
         </div>
       </main>
 
-      <section id="services" className="max-w-6xl mx-auto px-6 py-12">
-        <h3 className="text-2xl font-bold">Services</h3>
-        <p className="text-gray-600 mt-2 max-w-2xl">What we offer — from concept to launch.</p>
-        <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ServiceCard title="Website Development" desc="Responsive websites, e-commerce, SEO & performance optimization." icon={<FaLaptopCode />} highlight />
-          <ServiceCard title="Mobile Apps" desc="Cross-platform apps with real-time features, push notifications and analytics." icon={<FaMobileAlt />} highlight />
-          <ServiceCard title="Logo & Branding" desc="Logo concepts, brand guides, social media assets, brouchers and print-friendly files." icon={<FaPaintBrush />} highlight />
-          <ServiceCard title="UI/UX Design" desc="Wireframes, high-fidelity mockups and clickable prototypes to validate flows." icon={<FaDraftingCompass />} highlight />
-          <ServiceCard title="Maintenance & Support" desc="Ongoing updates, security, monitoring and iterative improvements." icon={<FaTools />} highlight />
-          <ServiceCard title="Consulting & Strategy" desc="Product discovery, tech stack selection, and launch roadmaps." icon={<FaLightbulb />} highlight />
+      <section id="services" className="bg-white pt-12 pb-16 mx-4 md:mx-8 shadow-[0_4px_24px_rgba(0,0,0,0.02)] border border-gray-100 rounded-[3.5rem] mt-4 mb-6 relative overflow-hidden">
+        {/* Animated Background Gradients */}
+        <motion.div animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></motion.div>
+        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none"></motion.div>
+
+        <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-2xl mx-auto mb-20"
+          >
+            <div className="inline-block bg-blue-50 border border-blue-100 text-blue-600 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest mb-6 shadow-sm">Capabilities</div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-800 mb-4">Our Services</h2>
+            <p className="text-gray-500 text-lg md:text-xl leading-relaxed">Everything you need to launch and grow your digital presence, delivered with pristine quality and performance.</p>
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <ServiceCard title="Web Development" desc="Responsive, lightning-fast websites and robust web applications built with modern tools." icon={<FaLaptopCode />} />
+            <ServiceCard title="Mobile Apps" desc="Native-feeling cross-platform applications for iOS and Android with delightful UX." icon={<FaMobileAlt />} />
+            <ServiceCard title="Brand Identity" desc="Memorable logos, typography, and cohesive brand guidelines that stand out." icon={<FaPaintBrush />} />
+            <ServiceCard title="UI/UX Design" desc="Intuitive, accessible, and gorgeous user interfaces designed for conversion." icon={<FaDraftingCompass />} />
+            <ServiceCard title="Maintenance" desc="Reliable hosting, security updates, and performance monitoring for peace of mind." icon={<FaTools />} />
+            <ServiceCard title="Strategy" desc="Technical consulting and clear roadmaps to scale your product efficiently." icon={<FaLightbulb />} />
+          </motion.div>
         </div>
       </section>
 
-      <section id="work" className="max-w-6xl mx-auto px-6 py-16">
+      <section id="work" className="max-w-6xl mx-auto px-6 pt-6 pb-16">
         <div className="text-center mb-10">
-          <h3 className="text-3xl font-extrabold text-gray-900">Featured Work</h3>
-          <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-lg">Delivering real value through thoughtful design and robust engineering.</p>
+          <h3 className="text-2xl font-bold text-gray-800">Featured Work</h3>
+          <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-base md:text-lg">Delivering real value through thoughtful design and robust engineering.</p>
         </div>
 
         <div className="bg-gray-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative text-white pt-12 px-8 md:px-12 lg:flex lg:items-center lg:gap-12 lg:pt-0 lg:pl-16 lg:pr-0">
@@ -69,8 +93,8 @@ export default function App() {
             <div className="inline-block bg-blue-500/20 text-blue-300 font-semibold px-4 py-1.5 rounded-full text-sm mb-6 border border-blue-500/30">
               E-Commerce Mobile App
             </div>
-            <h4 className="text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">DaiLynk: Store to Door.</h4>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+            <h4 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">DaiLynk: Store to Door.</h4>
+            <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed max-w-lg">
               We built DaiLynk to seamlessly connect clients with their products. Designed to streamline ordering, and present products beautifully – it brings full store accessibility right into your pocket.
             </p>
 
@@ -78,26 +102,26 @@ export default function App() {
               href="https://play.google.com/store/apps/details?id=com.dreamsynccreations.dailynk"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white text-gray-900 hover:bg-gray-100 px-6 py-4 rounded-xl font-bold transition-transform hover:-translate-y-1 shadow-lg"
+              className="inline-flex items-center gap-3 bg-white text-gray-900 hover:bg-gray-100 px-5 py-3 rounded-xl font-semibold transition-transform hover:-translate-y-1 shadow-md"
             >
-              <FaGooglePlay className="text-xl text-emerald-600" />
+              <FaGooglePlay className="text-lg text-emerald-600" />
               <div className="text-left">
                 <div className="text-[10px] leading-tight uppercase font-semibold text-gray-600">Get it on</div>
-                <div className="text-lg leading-tight">Google Play</div>
+                <div className="text-base leading-tight font-bold">Google Play</div>
               </div>
             </a>
-            <div className="mt-8 flex flex-wrap gap-6">
+            <div className="mt-8 flex flex-wrap gap-8">
               <div>
-                <div className="text-3xl font-bold text-blue-400">100+</div>
-                <div className="text-sm text-gray-500 mt-1">Products</div>
+                <div className="text-2xl font-bold text-blue-400">100+</div>
+                <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide font-semibold">Products</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-emerald-400">Fast</div>
-                <div className="text-sm text-gray-500 mt-1">Checkout Flow</div>
+                <div className="text-2xl font-bold text-emerald-400">Fast</div>
+                <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide font-semibold">Checkout Flow</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-amber-400">UI/UX</div>
-                <div className="text-sm text-gray-500 mt-1">Premium Design</div>
+                <div className="text-2xl font-bold text-amber-400">UI/UX</div>
+                <div className="text-xs text-gray-500 mt-1 uppercase tracking-wide font-semibold">Premium Design</div>
               </div>
             </div>
           </div>
@@ -176,8 +200,8 @@ export default function App() {
               <div className="inline-block bg-white/10 text-blue-200 font-semibold px-5 py-2 rounded-full text-sm mb-6 border border-white/10 backdrop-blur-md">
                 B2B E-Commerce Platform
               </div>
-              <h4 className="text-4xl md:text-5xl lg:text-5xl font-extrabold mb-6 leading-[1.1] tracking-tight">Seller App: Empowering Vendors.</h4>
-              <p className="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed max-w-lg">
+              <h4 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">Seller App: Empowering Vendors.</h4>
+              <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed max-w-lg">
                 Built exclusively for store owners, this platform provides a comprehensive dashboard to manage your entire catalog. Effortlessly track customers, orders in real-time, update inventory — giving you total control over your digital storefront.
               </p>
 
@@ -185,26 +209,26 @@ export default function App() {
                 href="https://seller-app.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold transition-transform hover:-translate-y-1 shadow-xl"
+                className="inline-flex items-center gap-3 bg-white text-gray-900 hover:bg-gray-100 px-5 py-3 rounded-lg font-semibold transition-transform hover:-translate-y-1 shadow-md"
               >
                 <div className="text-left">
-                  <div className="text-[10px] leading-tight uppercase font-semibold text-gray-500 tracking-wider">Visit Live</div>
-                  <div className="text-lg leading-tight font-extrabold">Web App</div>
+                  <div className="text-[10px] leading-tight uppercase font-semibold text-gray-600 tracking-wider">Visit Live</div>
+                  <div className="text-base leading-tight font-bold">Web App</div>
                 </div>
               </a>
 
-              <div className="mt-16 flex flex-wrap gap-10">
+              <div className="mt-10 flex flex-wrap gap-8">
                 <div>
-                  <div className="text-4xl font-extrabold text-blue-400 tracking-tight">50+</div>
-                  <div className="text-sm font-medium text-gray-400 mt-2 uppercase tracking-wider">Features</div>
+                  <div className="text-2xl font-bold text-blue-400 tracking-tight">50+</div>
+                  <div className="text-xs font-semibold text-gray-500 mt-1 uppercase tracking-wide">Features</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-extrabold text-emerald-400 tracking-tight">Smart</div>
-                  <div className="text-sm font-medium text-gray-400 mt-2 uppercase tracking-wider">Dashboard</div>
+                  <div className="text-2xl font-bold text-emerald-400 tracking-tight">Smart</div>
+                  <div className="text-xs font-semibold text-gray-500 mt-1 uppercase tracking-wide">Dashboard</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-extrabold text-amber-400 tracking-tight">UI/UX</div>
-                  <div className="text-sm font-medium text-gray-400 mt-2 uppercase tracking-wider">Premium Design</div>
+                  <div className="text-2xl font-bold text-amber-400 tracking-tight">UI/UX</div>
+                  <div className="text-xs font-semibold text-gray-500 mt-1 uppercase tracking-wide">Premium Design</div>
                 </div>
               </div>
             </div>
@@ -333,17 +357,27 @@ export default function App() {
   );
 }
 
-function ServiceCard({ title, desc, icon, highlight }: { title: string; desc: string; icon: React.ReactNode; highlight?: boolean }) {
+function ServiceCard({ title, desc, icon }: { title: string; desc: string; icon: React.ReactNode }) {
   return (
-    <div className={`bg-white p-5 rounded-xl shadow-sm ${highlight ? 'border-2 border-blue-500' : ''}`}>
-      <div className="flex items-start gap-3">
-        <div className={`w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center ${highlight ? 'text-blue-700' : 'text-blue-600'}`}>{icon}</div>
-        <div>
-          <div className={`font-semibold ${highlight ? 'text-blue-700' : ''}`}>{title}</div>
-          <div className="text-sm text-gray-500 mt-1">{desc}</div>
-        </div>
-      </div>
-    </div>
+    <motion.div 
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
+      }}
+      className="bg-[#fcfcfc] flex flex-col items-center text-center relative px-5 py-4 md:px-6 md:py-5 rounded-[1.75rem] shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] border border-gray-100/80 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.2)] hover:border-blue-200 transition-all duration-500 group overflow-hidden"
+    >
+      <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-20"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 z-0"></div>
+      
+      <motion.div 
+        whileHover={{ scale: 1.15, rotate: 10 }}
+        className="w-14 h-14 rounded-[1rem] bg-white shadow-sm border border-gray-50 text-blue-600 flex items-center justify-center text-2xl mb-4 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:text-white group-hover:shadow-[0_10px_20px_-5px_rgba(37,99,235,0.4)] transition-all duration-300 relative z-10"
+      >
+        {icon}
+      </motion.div>
+      <h4 className="text-xl font-bold text-gray-900 mb-1.5 tracking-tight relative z-10">{title}</h4>
+      <p className="text-gray-500 text-base leading-snug relative z-10 group-hover:text-gray-700 transition-colors">{desc}</p>
+    </motion.div>
   );
 }
 
